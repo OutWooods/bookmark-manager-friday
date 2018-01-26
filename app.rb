@@ -34,12 +34,9 @@ class BookMarkManager < Sinatra::Base
   end
 
   post '/user/new' do
-    user = User.creat(email: params[:email], password: params[:password])
+    user = User.create(email: params[:email],
+                    password: params[:password] )
     session[:user_id] = user.id
-    @user = User.new(email: params[:email])
-    @user.password = params[:password]
-    @user.save!
-    session[:user] = User.first(email: params[:email])
     redirect '/links'
   end
 
