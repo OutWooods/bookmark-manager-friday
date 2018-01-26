@@ -13,6 +13,10 @@ class BookMarkManager < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def email
+      @email = session[:email]
+    end
   end
 
   get '/' do
@@ -46,6 +50,7 @@ class BookMarkManager < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.id.nil?
       flash.next[:login_error] = 'Password and confirmation password do not match'
+      session[:email] = params[:email]
       redirect '/signup'
     else
       session[:user_id] = user.id

@@ -22,4 +22,9 @@ feature 'Signup and submit' do
     bad_sign_up
     expect(page).to have_current_path("/signup")
   end
+
+  scenario 'Stores email after bad sign up' do
+    bad_sign_up
+    expect(page).to have_field("email", with: "a.pourian@hotmail.co.uk")
+  end
 end
