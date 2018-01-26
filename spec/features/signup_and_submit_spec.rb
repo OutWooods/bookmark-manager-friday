@@ -20,6 +20,6 @@ feature 'Signup and submit' do
 
   scenario 'Does not progress to links when wrong password given' do
     bad_sign_up
-    expect(page).to have_current_path("/user/new")
+    expect(page).to have_current_path("/signup")
   end
 end

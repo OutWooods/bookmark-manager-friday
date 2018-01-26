@@ -1,5 +1,9 @@
 <h3>sign up to use bookmark manager</h3>
 
+<% if flash[:login_error] %>
+  <%= flash[:login_error] %>
+<% end %>
+
 <form action="/user/new" method="post">
   <ul>
     <input type="text" name="email">
