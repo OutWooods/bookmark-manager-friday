@@ -13,7 +13,6 @@ class BookMarkManager < Sinatra::Base
 
   get '/links' do
     @links = Link.all
-    @user = current_user
     erb :'links/index'
   end
 
