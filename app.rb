@@ -16,7 +16,7 @@ class BookMarkManager < Sinatra::Base
   end
 
   get '/' do
-    redirect '/links'
+    redirect '/signup'
   end
 
   get '/links' do
