@@ -8,6 +8,6 @@ feature 'password encryption' do
     click_button 'submit'
     user = User.first(email: 'b.pourian@hotmail.co.uk')
 
-    expect('password1').not_to eq(user.password)
+    expect('password1').not_to eq(user.password_hash)
     end
   end

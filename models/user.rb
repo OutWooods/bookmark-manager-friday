@@ -5,7 +5,7 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :email, String, :length => 100
+  property :email, String
   property :password_hash, Text
 
 
