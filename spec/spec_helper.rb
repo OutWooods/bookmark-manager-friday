@@ -1,9 +1,11 @@
 ENV['RACK_ENV'] = 'test'
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './models/link'
+require './spec/features/web_helpers'
 require 'database_cleaner'
 
 Capybara.app = BookMarkManager
