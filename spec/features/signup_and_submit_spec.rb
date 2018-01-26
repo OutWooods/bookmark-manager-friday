@@ -9,12 +9,17 @@ feature 'Signup and submit' do
     expect{ sign_up }.to change(User, :count). by(1)
   end
 
-  scenario 'User gives wrong confirmation password' do
+  scenario 'User not created when wrong confirmation password given' do
     expect{ bad_sign_up }.not_to change(User, :count)
   end
 
-  scenario 'User gives wrong confirmation password' do
+  scenario 'Page shows intervention when User gives wrong password confirmation' do
     bad_sign_up
-    expect(page).not_to have_content("a.pourian@hotmail.co.uk")
+    expect(page).to have_content('Password and confirmation password do not match')
+  end
+
+  scenario 'Does not progress to links when wrong password given' do
+    bad_sign_up
+    expect(page).to have_current_path("/user/new")
   end
 end
